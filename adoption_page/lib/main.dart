@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
@@ -169,8 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: Image.network(
-                              'https://assets-global.website-files.com/5fce4d055c2d34363bd1d1b4/620196078c189523e74998de_New%20Logo.jpg'),
+                          child: Image.asset('assets/adopt_logo.jpg'),
                         ),
                         Expanded(
                           child: Padding(
@@ -186,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     borderRadius: BorderRadius.circular(100),
                                   ),
                                   child: OutlinedButton(
-                                    child: Text(
+                                    child: const Text(
                                       '  Adopt',
                                       style: TextStyle(
                                         color: Colors.black,
@@ -228,8 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Expanded(
                             flex: 3,
-                            child: Image.network(
-                                'https://en.pimg.jp/062/124/406/1/62124406.jpg'),
+                            child: Image.asset('assets/store_logo.jpg'),
                           ),
                           Expanded(
                             child: Padding(
