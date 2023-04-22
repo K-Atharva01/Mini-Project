@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           width: 110,
                           height: 110,
-                          color: Colors.red,
+                          child: Lottie.asset("assets2/animations/cuteDog.json"),
                         ),
                         SizedBox(height: 10,),
                         Column(
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Container(
                           width: 110,
                           height: 110,
-                          color: Colors.red,
+                          child: Lottie.asset("assets2/animations/cuteDog.json"),
                         ),
                         SizedBox(height: 20,),
                         Column(
