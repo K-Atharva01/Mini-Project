@@ -72,6 +72,8 @@ flutter:
     - assets/store_assets/plus.jpeg
     - assets/store_assets/raw.jpeg
     - assets/store_assets/nd.jpg
+    - assets/adopt_logo.jpg
+    - assets/store_logo.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

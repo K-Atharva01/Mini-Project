@@ -13,16 +13,6 @@ Future main() async {
   runApp(MyApp());
 }
 
-// Future<void> main() async {
-//   await Hive.initFlutter();
-
-//   // WidgetsFlutterBinding.ensureInitialized()
-//   //     .renderView.configuration.scrollConfiguration.setGlowColor(Colors.transparent);
-  
-
-//   runApp(MyApp());
-// }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -35,13 +25,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => FavModel()),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: ScrollConfiguration(
-          behavior: NoGlowBehavior(),
-           child:const IntroPage())
-      ),
-      
-      
+          debugShowCheckedModeBanner: false,
+          home: ScrollConfiguration(
+              behavior: NoGlowBehavior(), child: const IntroPage())),
     );
   }
 }
@@ -49,10 +35,7 @@ class MyApp extends StatelessWidget {
 class NoGlowBehavior extends ScrollBehavior {
   @override
   Widget buildViewportChrome(
-    BuildContext context, 
-    Widget child, 
-    AxisDirection axisDirection
-  ) {
+      BuildContext context, Widget child, AxisDirection axisDirection) {
     return child;
   }
 }
