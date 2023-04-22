@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_adoption_miniproject/AdoptionFormData.dart';
 import 'package:flutter_adoption_miniproject/AdoptionList.dart';
+import 'package:lottie/lottie.dart';
 Future main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -45,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         
-        title: Text(widget.title),
+        title: Text("Home Page"),
       ),
       body: Container(
         width: double.infinity,
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: 270,
               height: 270,
-              color: Colors.red,
+              child:Lottie.asset("assets2/animations/petHug.json"),
             ),
             SizedBox(height: 20,),
             Row(
