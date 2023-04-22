@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:semifin/home.dart';
+import 'package:semifin/intro_page.dart';
 import 'report.dart';
 import 'mainprofile.dart';
 
@@ -27,7 +29,7 @@ class homepage extends StatelessWidget{
             decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                    image: AssetImage('assets/homepage.jpg')
+                    image: AssetImage('assets1/homepage.jpg')
                 )
             ),
             child: Column(
@@ -37,7 +39,7 @@ class homepage extends StatelessWidget{
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('assets/home1.jpg')
+                      image: AssetImage('assets1/home1.jpg')
                     ),
                     color: Colors.white ,
                     borderRadius: BorderRadius.circular(20),
@@ -58,59 +60,64 @@ class homepage extends StatelessWidget{
 
                 SingleChildScrollView(
                   child: Row(
+                    
 
                     children:[
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                        child: Container(
-                          height: 200,
-                          width: 130,
-                          decoration: BoxDecoration(
-                            color: Colors.white ,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 3,
-                                child: Image.network('https://thumbs.dreamstime.com/b/white-exclamation-mark-triangle-icon-isolated-long-shadow-hazard-warning-sign-careful-attention-danger-pink-hexagon-button-189015310.jpg'),
-                              ),
-                              Expanded(
-
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: 30,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white ,
-                                          borderRadius: BorderRadius.circular(100),
-                                        ),
-                                        child: OutlinedButton(
-                                          child:
-                                          Text('Report', style: TextStyle(
-                                            color:Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20,
-                                          ),
-                                          ),
-                                          onPressed: (){
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(builder: (context) => ImagePickerApp())
-                                            );
-                                          },
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Container(
+                        height: 200,
+                        width: 130,
+                        decoration: BoxDecoration(
+                          color: Colors.white ,
+                          borderRadius: BorderRadius.circular(20),
                         ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              flex: 3,
+                              child: Image.network('https://thumbs.dreamstime.com/b/white-exclamation-mark-triangle-icon-isolated-long-shadow-hazard-warning-sign-careful-attention-danger-pink-hexagon-button-189015310.jpg'),
+                            ),
+                            Expanded(
+
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 30,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white ,
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                      child: OutlinedButton(
+                                        child:
+                                        Text('Report', style: TextStyle(
+                                          color:Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                        ),
+                                        onPressed: (){
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => ImagePickerApp())
+                                          );
+                                        },
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        width: 50,
                       ),
                       Container(
                         height: 200,
@@ -147,6 +154,11 @@ class homepage extends StatelessWidget{
                                         ),
                                         ),
                                         onPressed: (){
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(builder: (context) => const MyHomePage(title: '',))
+                                        );
+
                                           print('Text button tapped');
                                         },
                                       ),
@@ -163,54 +175,61 @@ class homepage extends StatelessWidget{
                 ),
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 50),
-                      child: Container(
-                        height: 200,
-                        width: 130,
-                        decoration: BoxDecoration(
-                          color: Colors.white ,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Image.network('https://en.pimg.jp/062/124/406/1/62124406.jpg'),
-                            ),
-                            Expanded(
-
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 30,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white ,
-                                        borderRadius: BorderRadius.circular(100),
-                                      ),
-                                      child: OutlinedButton(
-                                        child:
-                                        Text('   Store', style: TextStyle(
-                                          color:Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
-                                        ),
-                                        ),
-                                        onPressed: (){
-                                          print('Text button tapped');
-                                        },
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      height: 200,
+                      width: 130,
+                      decoration: BoxDecoration(
+                        color: Colors.white ,
+                        borderRadius: BorderRadius.circular(20),
                       ),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 3,
+                            child: Image.network('https://en.pimg.jp/062/124/406/1/62124406.jpg'),
+                          ),
+                          Expanded(
+
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 30,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white ,
+                                      borderRadius: BorderRadius.circular(100),
+                                    ),
+                                    child: OutlinedButton(
+                                      child:
+                                      Text('   Store', style: TextStyle(
+                                        color:Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20,
+                                      ),
+                                      ),
+                                      onPressed: (){
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => IntroPage())
+                                      );
+                                        print('Text button tapped');
+                                      },
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 50,
                     ),
                     Container(
                       height: 200,

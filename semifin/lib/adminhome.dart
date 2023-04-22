@@ -24,7 +24,7 @@ class adminhome extends StatelessWidget{
         decoration: BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/profile4.jpg')
+                image: AssetImage('assets1/profile4.jpg')
             )
         ),
         child: Column(

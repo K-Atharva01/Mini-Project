@@ -59,7 +59,7 @@ Widget buildprofile (BuildContext context){
       decoration: BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/homepage.jpg')
+              image: AssetImage('assets1/homepage.jpg')
           )
       ),
       child: ListView(
@@ -100,7 +100,7 @@ Widget buildprofile (BuildContext context){
                 shape: BoxShape.circle,
                 image: authController.myadmin.value.aimage == null? DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('assets/profile4.jpg')
+                    image: AssetImage('assets1/profile4.jpg')
                 ): DecorationImage(
                     fit: BoxFit.fitHeight,
                     image: NetworkImage(authController.myadmin.value.aimage!)

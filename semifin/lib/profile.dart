@@ -124,7 +124,7 @@ class _profileState extends State<profile> {
           width: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  fit: BoxFit.cover, image: AssetImage('assets/profile4.jpg'))),
+                  fit: BoxFit.cover, image: AssetImage('assets1/profile4.jpg'))),
           child: SingleChildScrollView(
             child: Column(
               children: [

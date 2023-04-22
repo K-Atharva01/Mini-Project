@@ -4,7 +4,7 @@ import 'package:semifin/adminreg.dart';
 import 'package:semifin/authcontroller.dart';
 import 'package:semifin/details.dart';
 import 'package:semifin/example.dart';
-import 'splash.dart';
+import 'splash1.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: splash(),
+      home: splash1(),
       debugShowCheckedModeBanner: false,
     );
   }

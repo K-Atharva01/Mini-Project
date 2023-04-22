@@ -46,7 +46,7 @@ class _loginState extends State<login> {
         height: 900,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage('assets/signup3.jpg'))),
+                fit: BoxFit.cover, image: AssetImage('assets1/signup3.jpg'))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

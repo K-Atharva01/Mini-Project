@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'login.dart';
 
-class splash extends StatefulWidget{
+class splash1 extends StatefulWidget{
   @override
-  State<splash> createState() => _splashState();
+  State<splash1> createState() => _splash1State();
 }
 
-class _splashState extends State<splash> {
+class _splash1State extends State<splash1> {
   @override
   void initState() {
 
