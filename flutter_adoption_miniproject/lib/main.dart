@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_adoption_miniproject/AdoptionFormData.dart';
 import 'package:flutter_adoption_miniproject/AdoptionList.dart';
-import 'package:flutter_adoption_miniproject/FirstPage.dart';
 Future main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -54,17 +53,92 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed:(){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>putForAdoption()));    
-            }, child: Text("Put for Adoption")),
             SizedBox(height: 10,),
-            ElevatedButton(onPressed:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>AdoptList()));
-            }, child: Text("Adopt ")),
-            SizedBox(height: 10,),
-            ElevatedButton(onPressed:(){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>firstpage()));
-            }, child: Text("First Page")),
+            Container(
+              width: 270,
+              height: 270,
+              color: Colors.red,
+            ),
+            SizedBox(height: 20,),
+            Row(
+              children: [
+                SizedBox(width: 20,),
+                // ElevatedButton(onPressed:(){
+                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>putForAdoption()));
+                // }, child: Text("Put for Adoption")),
+                InkWell(
+                  child: Container(
+                    height: 250,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: Colors.amber
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 20,),
+                        Container(
+                          width: 110,
+                          height: 110,
+                          color: Colors.red,
+                        ),
+                        SizedBox(height: 10,),
+                        Column(
+                          children: [
+                            Text("Put",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                            SizedBox(height: 5,),
+                            Text("For",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                            SizedBox(height: 5,),
+                            Text("Adoption",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>putForAdoption()));
+                  },
+                ),
+                SizedBox(width: 15,),
+                // ElevatedButton(onPressed:(){
+                // Navigator.push(context, MaterialPageRoute(builder: (context)=>AdoptList()));
+                // }, child: Text("Adopt ")),
+                InkWell(
+                  child: Container(
+                    height: 250,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: Colors.amber
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 20,),
+                        Container(
+                          width: 110,
+                          height: 110,
+                          color: Colors.red,
+                        ),
+                        SizedBox(height: 20,),
+                        Column(
+                          children: [
+                            Text("Adopt",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                            SizedBox(height: 5,),
+                            Text("Animal",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AdoptList()));
+                  },
+                ),
+                SizedBox(width: 10,),
+              ],
+            ),
           ],
         ),
       )

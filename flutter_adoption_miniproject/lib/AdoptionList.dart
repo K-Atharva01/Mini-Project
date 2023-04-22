@@ -50,7 +50,7 @@ class AdoptList extends StatelessWidget{
                       ),
                     ),
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AdoptionInfo(snapshot.data!.docs[index]["Type Of Pet"], snapshot.data!.docs[index]["Name Of Pet"], snapshot.data!.docs[index]["Age Of Pet"], snapshot.data!.docs[index]["Gender Of Pet"], snapshot.data!.docs[index]["Colour Of Pet"], snapshot.data!.docs[index]["Image"], snapshot.data!.docs[index]["Name Of Owner"], snapshot.data!.docs[index]["Phone Number Of Owner"], snapshot.data!.docs[index]["Postal Address Of Owner"])));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AdoptionInfo(snapshot.data!.docs[index]["Type Of Pet"], snapshot.data!.docs[index]["Name Of Pet"], snapshot.data!.docs[index]["Age Of Pet"], snapshot.data!.docs[index]["Gender Of Pet"], snapshot.data!.docs[index]["Colour Of Pet"], snapshot.data!.docs[index]["Image"], snapshot.data!.docs[index]["Name Of Owner"], snapshot.data!.docs[index]["Phone Number Of Owner"], snapshot.data!.docs[index]["Postal Address Of Owner"],snapshot.data!.docs[index].reference.id)));
                     },
                   ),
                 )

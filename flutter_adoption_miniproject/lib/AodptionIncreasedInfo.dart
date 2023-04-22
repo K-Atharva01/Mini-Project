@@ -1,8 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 late String phone;
-class AdoptionInfo extends StatelessWidget{
+class AdoptionInfo extends StatefulWidget {
+
+  var pt;
+  var pn;
+  var pa;
+  var pg;
+  var pc;
+  var img;
+  var on;
+  var op;
+  var oa;
+  var di;
+  
+  AdoptionInfo(
+    this.pt,
+    this.pn,
+    this.pa,
+    this.pg,
+    this.pc,
+    this.img,
+    this.on,
+    this.op,
+    this.oa,
+    this.di,
+  );
+  @override
+  State<AdoptionInfo> createState() => _AdoptionInfo(pt,pn,pa,pg,pc,img,on,op,oa,di);
+}
+
+class _AdoptionInfo extends State<AdoptionInfo> {
   var pettype;
   var petname;
   var petage;
@@ -12,8 +42,9 @@ class AdoptionInfo extends StatelessWidget{
   var ownername;
   var ownerphone;
   var owneraddress;
+  var docid;
 
-  AdoptionInfo(
+  _AdoptionInfo(
     this.pettype,
     this.petname,
     this.petage,
@@ -23,6 +54,7 @@ class AdoptionInfo extends StatelessWidget{
     this.ownername,
     this.ownerphone,
     this.owneraddress,
+    this.docid,
   );
   @override
   Widget build(BuildContext context) {
@@ -227,8 +259,28 @@ class AdoptionInfo extends StatelessWidget{
                   SizedBox(width: 20,),
                   Text("Click 'Adopt' Button After Contacting the Owner !",style: TextStyle(fontSize: 10),),
                   SizedBox(width: 10,),
-                  AdoptButton()
-                ],
+                  Opacity(
+                    opacity: 1.0,
+                    child: ElevatedButton(
+                    onPressed: (){
+                      DocumentReference documentReference = FirebaseFirestore.instance.collection("Users").doc(docid);
+                      documentReference.delete();
+                      final text="$petname is Adopted !";
+                      final snackBar=SnackBar(content: Text(text));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      Navigator.pop(context);
+                      // setState(() {
+                      //   pressed=true;
+                      // });
+                    },
+                    child: Row(
+                    children: [ 
+                    Text("Adopt Me",style: TextStyle(fontSize: 15),),
+                   ],
+                                ),
+                              ),
+                  ),
+            ],
               )
               
             ],
@@ -238,18 +290,4 @@ class AdoptionInfo extends StatelessWidget{
     );
   }
 
-}
-
-AdoptButton(){
-  return Container(
-    width: 100,
-    child: ElevatedButton(
-      onPressed: (){},
-      child: Row(
-        children: [ 
-          Text("Adopt Me",style: TextStyle(fontSize: 15),),
-        ],
-      ),
-    ),
-  );
 }
