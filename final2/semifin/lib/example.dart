@@ -18,7 +18,9 @@ class ItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Items'),
+        backgroundColor: Colors.brown,
+        title: Text('Listed NGOs'),
+        centerTitle: true,
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _stream,
@@ -83,6 +85,7 @@ class ItemList extends StatelessWidget {
                           child: thisItem.containsKey('aimage')?Image.network('${thisItem['aimage']}'):Container()
                       ),
                       onTap: () {
+                        
 
                       },
                     ),
