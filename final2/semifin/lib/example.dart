@@ -8,7 +8,7 @@ class ItemList extends StatelessWidget {
   }
 
   CollectionReference _reference =
-  FirebaseFirestore.instance.collection('ngos');
+      FirebaseFirestore.instance.collection('ngos');
 
   //_reference.get()  ---> returns Future<QuerySnapshot>
   //_reference.snapshots()--> Stream<QuerySnapshot> -- realtime updates
@@ -18,9 +18,7 @@ class ItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.brown,
-        title: Text('Listed NGOs'),
-        centerTitle: true,
+        title: const Text('NGOs'),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _stream,
@@ -35,19 +33,19 @@ class ItemList extends StatelessWidget {
             //get the data
             QuerySnapshot querySnapshot = snapshot.data;
             List<QueryDocumentSnapshot> documents = querySnapshot.docs;
-
             //Convert the documents to Maps
-            List<Map> items = documents.map((e) =>
-            {
-              'aabt': e['activities'],
-              'name': e['name'],
-              'aimage':e['image'],
-             'acontact1' :e['contactnumber1'],
-              'acontact2' :e['contactnumber2'],
-              'add2':e['address2'],
-              'aemail' : e['email']
-
-            }).toList();
+            List<Map> items = documents
+                .map((e) => {
+                      'id': e.id,
+                      'aabt': e['activities'],
+                      'name': e['name'],
+                      'aimage': e['image'],
+                      'acontact1': e['contactnumber1'],
+                      'acontact2': e['contactnumber2'],
+                      'add2': e['address2'],
+                      'aemail': e['email']
+                    })
+                .toList();
 
             //Display the list
             return ListView.builder(
@@ -55,6 +53,7 @@ class ItemList extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   //Get the item at this index
                   Map thisItem = items[index];
+
                   //REturn the widget for the list items
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -68,25 +67,34 @@ class ItemList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('${thisItem['name']}, ${thisItem['add2']}'),
-                          SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text('Contact no:${thisItem['acontact1']}'),
-                          SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text('Contact no:${thisItem['acontact2']}'),
-                          SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text('Email id :${thisItem['aemail']}'),
-                          SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text('About us:\n${thisItem['aabt']}'),
                         ],
                       ),
-
-                      leading: Container(
-                        height: 50,
+                      leading: SizedBox(
+                          height: 50,
                           width: 50,
-                          child: thisItem.containsKey('aimage')?Image.network('${thisItem['aimage']}'):Container()
-                      ),
+                          child: thisItem.containsKey('aimage')
+                              ? Image.network('${thisItem['aimage']}')
+                              : Container()),
                       onTap: () {
-                        
-
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Details(id: thisItem["id"]),
+                        ));
                       },
                     ),
                   );
@@ -94,10 +102,9 @@ class ItemList extends StatelessWidget {
           }
 
           //Show loader
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
-
     );
   }
 }
